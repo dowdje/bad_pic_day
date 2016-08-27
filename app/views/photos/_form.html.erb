@@ -16,14 +16,10 @@
     <%= f.text_field :caption %>
   </div>
 
-  <div class="field">
-    <%= f.label :celebrity_id %>
-    <%= f.text_field :celebrity_id %>
-  </div>
-
-  <div class="field">
-    <%= render 'celebrities/form' %>
-  </div>
+  <%= f.fields_for :celebrity, photo.celebrity do |celeb| %>
+  <%= celeb.label "Who is it?" %>
+  <%= celeb.text_field :name %>
+  <% end %>
 
   <div class="field">
     <%= f.label :image %>

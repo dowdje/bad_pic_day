@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get '/', to: 'application#index'
 
   resources :photos
-  resources :comments
+  resources :comments, only: [:create, :edit, :update, :destroy]
   resources :celebrities
 
 

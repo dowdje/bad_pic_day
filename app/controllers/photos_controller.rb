@@ -17,6 +17,7 @@ class PhotosController < ApplicationController
   def new
     @photo = Photo.new
     @celebrity = Celebrity.new
+    @photo.celebrity = @celebrity
   end
 
   # GET /photos/1/edit
@@ -71,6 +72,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:caption, :celebrity_id, :image, )
+      params.require(:photo).permit(:caption, :celebrity_id, :image, celebrity_attributes: [:name] )
     end
 end

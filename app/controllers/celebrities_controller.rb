@@ -54,6 +54,12 @@ class CelebritiesController < ApplicationController
   # DELETE /celebrities/1
   # DELETE /celebrities/1.json
   def destroy
+    @celebrity.photos.each do |photo|
+      photo.comments.each do |comment|
+        comment.destroy
+      end
+      photo.destroy
+    end
     @celebrity.destroy
     respond_to do |format|
       format.html { redirect_to celebrities_url, notice: 'Celebrity was successfully destroyed.' }
