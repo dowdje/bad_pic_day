@@ -11,5 +11,13 @@
   <%= image_tag(@photo.image.url(:medium)) %>
 </p>
 
+<p>
+  <!-- Comments! -->
+  <%= render 'comments/form' %>
+  <%= render 'comments/show' %>
+  <%= render 'comments/form' %>
+
+
+
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Back', photos_path %>

@@ -1,0 +1,11 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Comments:</strong>
+  <% @photo.comments.each do |comment| %>
+  <ul><%= comment.content %></ul>
+  <% end %>
+</p>
+
+<%= link_to 'Edit' %> |
+<%= link_to 'Back', comments_path %>

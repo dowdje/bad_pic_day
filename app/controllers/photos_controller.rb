@@ -10,6 +10,7 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.json
   def show
+    @comment = Comment.new
   end
 
   # GET /photos/new
@@ -69,6 +70,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:caption, :celebrity_id, :image)
+      params.require(:photo).permit(:caption, :celebrity_id, :image, )
     end
 end
