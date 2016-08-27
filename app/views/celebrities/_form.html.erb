@@ -1,5 +1,5 @@
-<%= form_for(celebrity) do |f| %>
-  <% if celebrity.errors.any? %>
+<%= form_for(@celebrity) do |f| %>
+  <% if @celebrity.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(celebrity.errors.count, "error") %> prohibited this celebrity from being saved:</h2>
 
