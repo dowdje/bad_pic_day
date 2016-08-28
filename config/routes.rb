@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :users
   get '/signin', to: 'sessions#new', as: 'new_session'
   post '/sessions', to: 'sessions#create', as: 'login'
-  get '/signout', to: 'sessions#destroy', as: 'logout'
+  post '/signout', to: 'sessions#destroy', as: 'logout'
   get '/', to: 'application#index', as: 'root'
 
   resources :photos
