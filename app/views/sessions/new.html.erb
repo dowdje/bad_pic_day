@@ -7,15 +7,12 @@
 
       <%= form_for @user do |f| %>
       <%= f.label :name %>
-      <%= f.text_field :name, id: "user_name" %><br />
+      <%= f.text_field :name %><br />
       <%= f.label :password %>
-      <%= f.password_field :password, id: "password" %><br />
+      <%= f.password_field :password %><br />
       <%= f.submit "Sign In" %>
       <% end %>
 
-
-<a href="/users">Back</a>
-
     </div>
 
-<%= link_to 'Back', sessions_path %>
+<%= link_to 'Back', root_path %>
