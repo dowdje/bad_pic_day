@@ -1,11 +1,17 @@
 <h1>Welcome to Celebrity Bad Picture Day!</h1>
 <h4>This site's intellectual property is the brainchild of Jake Dowd.</h4>
 
-<% unless logged_in? %>
+
+<% if !logged_in? %>
+
 <%= link_to "Sign Up", new_user_path %>
 <% end %>
  | 
+<% if logged_in? %>
+<%= link_to "Logout", logout_path %>
+<% else %>
 <%= link_to "Login", new_session_path %>
+<% end %>
 
 <p>
 <strong>Show All</strong>

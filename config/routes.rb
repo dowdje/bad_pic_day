@@ -4,8 +4,9 @@ Rails.application.routes.draw do
   # resources :registrations
   # resources :sessions
   resources :users
-  get '/sessions/new', to: 'sessions#new', as: 'new_session'
+  get '/signin', to: 'sessions#new', as: 'new_session'
   post '/sessions', to: 'sessions#create', as: 'login'
+  get '/signout', to: 'sessions#destroy', as: 'logout'
   get '/', to: 'application#index', as: 'root'
 
   resources :photos
