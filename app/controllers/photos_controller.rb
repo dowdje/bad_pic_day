@@ -10,6 +10,7 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.json
   def show
+
     @comment = Comment.new
   end
 
@@ -27,7 +28,9 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
+    byebug
     @photo = Photo.new(photo_params)
+    byebug
 
     respond_to do |format|
       if @photo.save
