@@ -17,13 +17,13 @@ class ApplicationController < ActionController::Base
     !!session[:user_id]
   end
 
-  def authenticate
-    redirect_to '/' unless logged_in?
-    # if session[:user_id]
-    #   xomething
-    # else
-    #   redirect_to root_path
-    # @user = User.find_by(name: params[:user][:name], password: params[:user][:password])
-  end
+  # def authenticate
+  #   redirect_to '/' unless logged_in?
+  #   # if session[:user_id]
+  #   #   xomething
+  #   # else
+  #   #   redirect_to root_path
+  #   # @user = User.find_by(name: params[:user][:name], password: params[:user][:password])
+  # end
 
 end

@@ -26,10 +26,10 @@ class SessionsController < ApplicationController
   # POST /sessions
   # POST /sessions.json
   def create
-    byebug
+    # byebug
     @user = User.find_by(name: params[:user][:name])
-    byebug
-    if @user.authenticate(name: params[:user][:name], password_digest: params[:user][:password])
+    # byebug
+    if @user && @user.authenticate(params[:user][:password])
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
@@ -85,7 +85,11 @@ class SessionsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    # def session_params
+    #   params.fetch(:session, {})
+    # end
+
     def session_params
-      params.fetch(:session, {})
+      params.require(:user).permit(:name, :password)
     end
 end
