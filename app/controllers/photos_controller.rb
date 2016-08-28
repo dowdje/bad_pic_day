@@ -28,9 +28,7 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    byebug
     @photo = Photo.new(photo_params)
-    byebug
 
     respond_to do |format|
       if @photo.save

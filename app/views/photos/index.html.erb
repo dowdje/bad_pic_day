@@ -14,7 +14,13 @@
   <tbody>
     <% @photos.each do |photo| %>
       <tr>
-        <td><%= photo.caption %></td>
+        <td>
+            <% if photo.caption.empty? %>
+            <%= link_to "Add A Caption!", celebrity_path(photo.celebrity.id) %>
+            <% else %>
+            <%= photo.caption %>
+            <% end %>
+        </td>
         <% if photo.celebrity %>
         <td><%= photo.celebrity.name %></td>
         <% end %>

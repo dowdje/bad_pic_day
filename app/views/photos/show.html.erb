@@ -2,12 +2,16 @@
 
 <p>
   <strong>Caption:</strong>
+  <% if @photo.caption.empty? %>
+  <%= link_to "Add A Caption!", edit_photo_path(@photo) %>
+  <% else %>
   <%= @photo.caption %>
+  <% end %>
+
 </p>
 
 <p>
   <strong>Celebrity:</strong>
-  <% byebug %>
   <%= @photo.celebrity.name %>
   <%= image_tag(@photo.image.url(:medium)) %>
 </p>

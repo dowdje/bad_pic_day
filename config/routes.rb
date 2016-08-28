@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  resources :users
+  resources :registrations
+  resources :sessions
   get '/', to: 'application#index'
 
   resources :photos
