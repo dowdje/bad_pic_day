@@ -12,7 +12,7 @@
 
 <p>
   <strong>Celebrity:</strong>
-  <%= @photo.celebrity.name %>
+  <%= @photo.celebrity.name.titleize %>
   <%= image_tag(@photo.image.url(:medium)) %>
 </p>
 

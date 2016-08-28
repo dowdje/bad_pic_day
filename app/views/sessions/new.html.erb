@@ -1,5 +1,21 @@
 <h1>New Session</h1>
 
-<%= render 'form', session: @session %>
+<!-- render 'form', session: @session -->
+
+    <div class="container"  role="main">
+      <h1>Sign in</h1>
+
+      <%= form_for @user do |f| %>
+      <%= f.label :name %>
+      <%= f.text_field :name, id: "user_name" %><br />
+      <%= f.label :password %>
+      <%= f.password_field :password, id: "password" %><br />
+      <%= f.submit "Sign In" %>
+      <% end %>
+
+
+<a href="/users">Back</a>
+
+    </div>
 
 <%= link_to 'Back', sessions_path %>

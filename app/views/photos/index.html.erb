@@ -22,7 +22,7 @@
             <% end %>
         </td>
         <% if photo.celebrity %>
-        <td><%= photo.celebrity.name %></td>
+        <td><%= photo.celebrity.name.titleize %></td>
         <% end %>
         <td><%= image_tag(photo.image.url(:thumb)) %></td>
         <td><%= link_to 'Show', photo %></td>
