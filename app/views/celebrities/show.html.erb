@@ -4,6 +4,11 @@
   <strong>Name:</strong>
   <%= @celebrity.name %>
 </p>
+<ul>
+  <% @celebrity.photos.each do |photo| %>
+  <li><%= image_tag(photo.image.url(:thumb)) %></li>
+  <% end %>
+</ul>
 
 <%= link_to 'Edit', edit_celebrity_path(@celebrity) %> |
 <%= link_to 'Back', celebrities_path %>
