@@ -10,6 +10,7 @@ class CelebritiesController < ApplicationController
   # GET /celebrities/1
   # GET /celebrities/1.json
   def show
+  
   end
 
   # GET /celebrities/new

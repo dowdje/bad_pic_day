@@ -2,16 +2,7 @@
 <h4>This site's intellectual property is the brainchild of Jake Dowd.</h4>
 
 
-<% if !logged_in? %>
 
-<%= link_to "Sign Up", new_user_path %>
-<% end %>
- | 
-<% if logged_in? %>
-<%= link_to "Logout", logout_path %>
-<% else %>
-<%= link_to "Login", new_session_path %>
-<% end %>
 
 <p>
 <strong>Show All</strong>

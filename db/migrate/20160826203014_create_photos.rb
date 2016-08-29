@@ -4,6 +4,7 @@ class CreatePhotos < ActiveRecord::Migration[5.0]
       t.string :caption
       t.belongs_to :celebrity, foreign_key: true
       t. attachment :image
+      t.belongs_to :user, foreign_key: true
 
       t.timestamps
     end

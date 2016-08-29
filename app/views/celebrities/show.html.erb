@@ -6,7 +6,9 @@
 </p>
 <ul>
   <% @celebrity.photos.each do |photo| %>
-  <li><%= link_to image_tag(photo.image.url(:thumb)), photo_path(photo) %></li>
+  <ul><%= link_to image_tag(photo.image.url(:thumb)), photo_path(photo) %> <br />
+  	<%= link_to "Caption: #{photo.caption}", photo_path(photo) %>
+  </ul>
   <% end %>
 </ul>
 

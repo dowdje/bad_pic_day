@@ -20,6 +20,9 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    unless current_user == @user
+      redirect_to root_path
+    end
   end
 
   # POST /users

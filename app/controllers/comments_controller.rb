@@ -20,6 +20,9 @@ class CommentsController < ApplicationController
   # GET /comments/1/edit
   def edit
     @comment = Comment.find(params[:id])
+    unless current_user == @comment.user
+      redirect_to root_path
+    end
     @photo = @comment.photo
   end
 
@@ -27,8 +30,9 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = Comment.new(comment_params)
-
+    @comment.user = current_user
     respond_to do |format|
+      # byebug
       if @comment.save
         format.html { redirect_to photo_path(@comment.photo), notice: 'Comment was successfully created.' }
         format.json { render :show, status: :created, location: @comment }
@@ -71,6 +75,6 @@ class CommentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
-      params.require(:comment).permit(:content, :photo_id)
+      params.require(:comment).permit(:content, :photo_id, :user_id)
     end
 end

@@ -11,7 +11,7 @@ class PhotosController < ApplicationController
   # GET /photos/1.json
   def show
 
-    @comment = Comment.new
+    @comment = Comment.new(photo_id: params[:id])
   end
 
   # GET /photos/new
@@ -23,6 +23,9 @@ class PhotosController < ApplicationController
 
   # GET /photos/1/edit
   def edit
+    unless current_user == @photo.user
+      redirect_to root_path
+    end
   end
 
   # POST /photos

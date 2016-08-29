@@ -4,15 +4,21 @@
   <strong>Name:</strong>
   <%= @user.name %>
 </p>
-<p><strong>Most Recent Post: </strong>
-  <%= link_to image_tag(@user.photos.last.image.url(:thumb)), photo_path(@user.photos.last) %>
+<p>
+<% if @user.photos.last %>
+	<strong>Most Recent Post: </strong>
+		<%= link_to image_tag(@user.photos.last.image.url(:thumb)), photo_path(@user.photos.last) %>
+	<% end %>
 </p>
-
 
 <p>
-  <strong>Password digest:</strong>
-  <%= @user.password_digest %>
+<% if @user.comments.last %>
+	<strong>Most Recent Comment:</strong>
+		<%= link_to @user.comments.last.content, photo_path(@user.comments.last.photo) %>
+<% end %>
 </p>
 
+<% if current_user == @user %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<% end %> 
+<%= link_to 'View All Users', users_path %>

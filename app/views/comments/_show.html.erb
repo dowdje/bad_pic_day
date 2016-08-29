@@ -3,8 +3,12 @@
 <p>
   <strong>Comments:</strong>
   <% @photo.comments.each do |comment| %>
-  <ul><%= comment.content %> <%= link_to 'Edit', edit_comment_path(comment.id) %> </ul>
-
+  <ul><%= link_to comment.user.name, user_path(comment.user) %> said: 
+  		<%= comment.content %>
+  		<% if current_user == comment.user %>
+  			 <%= link_to 'Edit', edit_comment_path(comment.id) %> 
+  		<% end %>
+  		</ul>
   <% end %>
 </p>
 

@@ -6,7 +6,7 @@
   <thead>
     <tr>
       <th>Name</th>
-      <th>Password digest</th>
+      <th>Most Recent Photo</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,11 +14,12 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.name %></td>
-        <td><%= user.password_digest %></td>
+        <td><%= link_to user.name, user_path(user) %></td>
+        <td><% if user.photos.last %>
+            <%= link_to image_tag(user.photos.last.image.url(:thumb)), photo_path(user.photos.last) %> 
+            <% end %>
+        </td>
         <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
