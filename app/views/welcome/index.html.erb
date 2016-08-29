@@ -6,8 +6,12 @@
 
 <p>
 <strong>Show All</strong>
-<p><%= link_to "Scare Me (Formerly Known as Show Me The Uglies, aka, Display All Celebrity Bad Photos)", photos_path %></p>
+<p><%= link_to "Scare Me (Formerly Known as Show Me Fortuitous Mistakes, aka, Display All Celebrity Bad Photos)", photos_path %></p>
 
 <p>
 <strong>Create New</strong>
+<% if current_user %>
 <p><%= link_to "I have a photo to share", new_photo_path %></p>
+<% else %>
+<p><%= link_to "Sign Up to Add Photos", new_user_path %></p>
+<% end %>

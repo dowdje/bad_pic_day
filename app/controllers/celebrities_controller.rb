@@ -1,5 +1,6 @@
 class CelebritiesController < ApplicationController
   before_action :set_celebrity, only: [:show, :edit, :update, :destroy]
+  before_action :authorized_user, only: [:edit, :update, :destroy]
 
   # GET /celebrities
   # GET /celebrities.json
@@ -10,7 +11,7 @@ class CelebritiesController < ApplicationController
   # GET /celebrities/1
   # GET /celebrities/1.json
   def show
-  
+
   end
 
   # GET /celebrities/new
@@ -77,5 +78,11 @@ class CelebritiesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def celebrity_params
       params.require(:celebrity).permit(:name)
+    end
+
+    def authorized_user
+      unless current_user == @user
+        redirect_to root_path
+      end
     end
 end

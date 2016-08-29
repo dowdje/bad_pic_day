@@ -15,8 +15,10 @@
       <tr>
         <td><%= celebrity.name.titleize %></td>
         <td><%= link_to 'Show', celebrity %></td>
+            <% if current_user == celebrity.photos.user %>
         <td><%= link_to 'Edit', edit_celebrity_path(celebrity) %></td>
         <td><%= link_to 'Destroy', celebrity, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
       </tr>
     <% end %>
   </tbody>

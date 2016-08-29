@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   before_action :set_user, only: [:show, :edit, :update, :destroy]
+  before_action :authorized_user, only: [:edit, :update, :destroy]
   # before_action :authenticate, only: [:show]
 
   # GET /users
@@ -20,9 +21,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    unless current_user == @user
-      redirect_to root_path
-    end
   end
 
   # POST /users
@@ -77,4 +75,11 @@ class UsersController < ApplicationController
     def user_params
       params.require(:user).permit(:name, :password, :password_confirmation)
     end
+
+    def authorized_user
+      unless current_user == @user
+        redirect_to root_path
+      end
+    end
 end
+

@@ -1,7 +1,7 @@
 <%= form_for @comment do |f| %>
-<%= f.label :content %>
+<strong><%= f.label "Make A Comment:" %></strong>
 
-<%= f.text_field :content %>
+<%= f.text_area :content %>
 <%= f.hidden_field :photo_id, value: @comment.photo.id %>
 
   <div class="actions">

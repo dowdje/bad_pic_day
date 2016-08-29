@@ -1,5 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
+  before_action :authorized_user, only: [:edit, :update, :destroy]
 
   # GET /photos
   # GET /photos.json
@@ -23,9 +24,9 @@ class PhotosController < ApplicationController
 
   # GET /photos/1/edit
   def edit
-    unless current_user == @photo.user
-      redirect_to root_path
-    end
+    # unless current_user == @photo.user
+    #   redirect_to root_path
+    # end
   end
 
   # POST /photos
@@ -78,5 +79,11 @@ class PhotosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
       params.require(:photo).permit(:caption, :celebrity_id, :image, celebrity_attributes: [:name] )
+    end
+
+    def authorized_user
+      unless current_user == @photo.user
+        redirect_to root_path
+      end
     end
 end
