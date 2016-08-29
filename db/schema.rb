@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160828160352) do
+ActiveRecord::Schema.define(version: 20160829001923) do
 
   create_table "celebrities", force: :cascade do |t|
     t.string   "name"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(version: 20160828160352) do
     t.integer  "photo_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer  "user_id"
     t.index ["photo_id"], name: "index_comments_on_photo_id"
   end
 
@@ -35,6 +36,7 @@ ActiveRecord::Schema.define(version: 20160828160352) do
     t.datetime "image_updated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.integer  "user_id"
     t.index ["celebrity_id"], name: "index_photos_on_celebrity_id"
   end
 
