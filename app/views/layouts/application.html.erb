@@ -23,7 +23,7 @@
         <a class="navbar-brand" />Logged in as <strong><%=link_to current_user.name, user_path(current_user)%></strong> (profile) </a> | 
         <%= link_to "Logout", logout_path, method: 'post', class: "navbar-brand" %>
         |
-        <%= link_to "Add Photo", new_photo_path, method: 'post', class: "navbar-brand" %>
+        <%= link_to "Add Photo", new_photo_path, class: "navbar-brand" %>
         |
         <%= link_to "View Photos", photos_path, class: "navbar-brand" %>
         |

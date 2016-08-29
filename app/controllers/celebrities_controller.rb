@@ -1,6 +1,6 @@
 class CelebritiesController < ApplicationController
   before_action :set_celebrity, only: [:show, :edit, :update, :destroy]
-  before_action :authorized_user, only: [:edit, :update, :destroy]
+  # before_action :authorized_user, only: [:edit, :update, :destroy]
 
   # GET /celebrities
   # GET /celebrities.json

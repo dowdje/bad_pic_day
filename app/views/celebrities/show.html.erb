@@ -12,5 +12,6 @@
   <% end %>
 </ul>
 
+<%= link_to "Add to #{@celebrity.name.titleize}", new_photo_path %> | 
 <%= link_to 'Edit', edit_celebrity_path(@celebrity) %> |
 <%= link_to 'Back', celebrities_path %>
