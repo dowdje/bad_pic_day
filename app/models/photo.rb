@@ -1,5 +1,6 @@
 class Photo < ApplicationRecord
   belongs_to :celebrity, autosave: true
+  belongs_to :user 
   has_many :comments
   accepts_nested_attributes_for :comments, reject_if: proc {|attributes| attributes['content'].blank?}
   accepts_nested_attributes_for :celebrity, reject_if: proc {|attributes| attributes['name'].blank?}
